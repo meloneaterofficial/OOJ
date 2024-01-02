@@ -1,0 +1,49 @@
+import java.util.Arrays;
+
+class STUDENT {
+    private String usn;
+    private String name;
+    private int[] marks;
+
+    public STUDENT(String usn, String name, int[] marks) {
+        this.usn = usn;
+        this.name = name;
+        this.marks = marks;
+    }
+
+    public double calculateAverage() {
+        int[] sortedMarks = marks.clone();
+        Arrays.sort(sortedMarks);
+
+        int n = sortedMarks.length;
+        int sum = sortedMarks[n - 1] + sortedMarks[n - 2];
+
+        return (double) sum / 2;
+    }
+
+    public String getUSN() {
+        return usn;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void finalize() {
+        System.out.println("Object " + usn + " is destroyed.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        STUDENT[] students = new STUDENT[3];
+        students[0] = new STUDENT("1", "John", new int[]{75, 85, 90});
+        students[1] = new STUDENT("2", "Sam", new int[]{65, 75, 80});
+        students[2] = new STUDENT("3", "Lily", new int[]{70, 80, 90});
+
+        for (STUDENT student : students) {
+            double average = student.calculateAverage();
+            System.out.println("USN: " + student.getUSN() + ", Name: " + student.getName() + ", Average Marks: " + average);
+        }
+    }
+}

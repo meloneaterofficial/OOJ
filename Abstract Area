@@ -1,0 +1,80 @@
+import java.util.Scanner;
+abstract class shape
+{
+	double dim1, dim2, radius;
+	shape(double a,double b)
+	{
+		dim1=a;
+		dim2=b;
+	}
+	shape(double a)
+	{
+		radius=a;
+	}
+	abstract void area();
+}
+
+class rectangle extends shape
+{
+	rectangle(double a, double b)
+	{
+		super(a,b);
+	}
+	void area()
+	{
+		System.out.println("area of rectangle is : "+(dim1*dim2));
+	}
+}
+
+class triangle extends shape
+{
+	triangle (double a,double b)
+	{
+		super(a,b);
+	}
+	void area()
+	{
+		System.out.println("area of triangle is : "+(dim1*dim2)/2);
+	}
+}
+
+class circle extends shape
+{
+	circle(double a)
+	{
+		super(a);
+	}
+	void area()
+	{
+		System.out.println("area of circle is : "+(3.14*(radius)*(radius)));
+	}
+}
+
+class AbstractAreaMain
+{
+	public static void main(String args[])
+	{
+		Scanner s=new Scanner(System.in);
+		System.out.println("enter your name : sanvi N");
+		System.out.println("enter your usn : 1BM22CS245 ");
+
+		System.out.println("enter length and breadth of rectangle: ");
+		double l=s.nextInt();
+		double b=s.nextInt();	
+		System.out.println("enter base and height of triangle: ");
+		double h1=s.nextInt();
+		double h2=s.nextInt();
+		System.out.println("enter the circle: ");
+		double r=s.nextInt();
+		shape sh;
+		rectangle rect=new rectangle(l,b);
+		triangle tri=new triangle(h1,h2);
+		circle cir=new circle(r);
+		sh=rect;
+		sh.area();
+		sh=tri;
+		sh.area();
+		sh=cir;
+		sh.area();
+	}
+}

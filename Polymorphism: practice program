@@ -1,0 +1,49 @@
+class Figure {
+    double dimension1, dimension2;
+
+    Figure(double d1, double d2) {
+        dimension1 = d1;
+        dimension2 = d2;
+    }
+
+    double area() {
+        return 0;
+    }
+}
+
+class Rectangle extends Figure {
+    Rectangle(double length, double width) {
+        super(length, width);
+    }
+
+    double area() {
+        return dimension1 * dimension2;
+    }
+}
+
+class Triangle extends Figure {
+    Triangle(double base, double height) {
+        super(base, height);
+    }
+
+    double area() {
+        return 0.5 * dimension1 * dimension2;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Figure fig = new Figure(10, 10);
+        Rectangle rect = new Rectangle(10, 10);
+        Triangle tri = new Triangle(10, 10);
+
+        System.out.println("Inside Area for Rectangle.");
+        System.out.println("Area is " + rect.area());
+
+        System.out.println("\nInside Area for Triangle.");
+        System.out.println("Area is " + tri.area());
+
+        System.out.println("\nArea for Figure is undefined.");
+        System.out.println("Area is " + fig.area());
+    }
+}
